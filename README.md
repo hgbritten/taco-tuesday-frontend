@@ -1,6 +1,9 @@
 # Cooperation Plan
 Every person on your team is an asset. This is your chance to discover the hidden strengths and areas for growth for each team member.
 
+### Trello 
+- https://trello.com/b/X6mRHLmV/tacobout 
+
 ## Team Members
 - Tim Egorov
 - Skyler Johnson
@@ -155,6 +158,16 @@ How often will you merge?
 
 How will you communicate that it’s time to merge?
 - Daily standup merging as a group. Outside of daily standup, communicate via Slack.
+
+
+Brainstorming Ideas
+Grab a whiteboard and brainstorm ideas. During this phase, there is no comment or criticism of ideas. Ideas should be given in the form of titles or very short phrases. If an explanation is needed, save it for the pitch round.
+- 
+
+Pitching a Project
+Once a critical mass of ideas has been written down, the person who offered the idea will give a pitch. Each pitch may be no longer than 2 to 3 minutes. The purpose of a pitch is to sell the idea to your group mates. During this phase, questions may be asked, but the discussion should be limited. Keep it short and to the point.
+
+At the end of the pitch, you should have formed a short list of favorites.
 
 
 # Getting Started with Create React App
