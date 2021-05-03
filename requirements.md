@@ -43,7 +43,7 @@ Our MVP will allow a user to enter certain ingredients, and receive recipes base
 
 ## Data Flow
 
-![wireframe](tacoWireframe.JPG)
+![wireframe](./img/tacoWireframe.JPG)
 
 
 ## Non-Functional Requirements
