@@ -1,29 +1,48 @@
 import React from 'react';
-import { Card, CardColumns, Accordion, Form, Button } from 'react-bootstrap';
+import { Card, Accordion, Form, Button } from 'react-bootstrap';
+import axios from 'axios';
 
 
 class Ingredients extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clickedIngredient: false,
-      ingredientsArray: []
+      showNewRecipe: false,
+      brandNewRecipe: '',
+      meat: '',
+      vegetable: '',
+      other: ''
     }
   }
 
-  addIngredient = () => {
-    this.setState({ clickedIngredient: true })
-  }
+  // addIngredient = () => {
+  //   this.setState({ clickedIngredient: true })
+  // }
 
-  handleSubmit = (event) => {
-    this.props.filterHorns(parseInt(event.target.value));
+  sendIngredientsList = async (e) => {
+
+    const server = 'http://localhost:3001';
+    try {
+      e.preventDefault();
+      console.log(this.state.meat);
+      console.log(this.state.vegetable);
+      console.log(this.state.other);
+      const newRecipe = await axios.get(`${server}/recipes`, { newlyCreatedRecipe: { meat: this.props.newMeat, vegetable: this.props.newVegetable, other: this.props.newOther } });
+      const allNewRecipeArray = newRecipe.data;
+      console.log('new recipe array: ', allNewRecipeArray);
+
+      this.setState({ brandNewRecipe: allNewRecipeArray, showNewRecipe: false });
+      console.log("New Recipe Created!!!")
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 
   render() {
     return (
       <>
-        <Form>
+        <Form onSubmit={this.sendIngredientsList}>
 
           <Accordion defaultActiveKey="1">
 
@@ -32,8 +51,8 @@ class Ingredients extends React.Component {
                 Click to Choose Protein
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
-                <Form.Group proteinId="proteinForm.Select">
-                  <Form.Control as="select">
+                <Form.Group protein="proteinForm">
+                  <Form.Control as="select" onChange={(e) => this.setState({ meat: e.target.value })}>
                     <option>...</option>
                     <option>Chicken</option>
                     <option>Beef</option>
@@ -52,8 +71,9 @@ class Ingredients extends React.Component {
                 Click to Choose Veggies
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
-                <Form.Group veggiesId="veggiesForm.Select">
-                  <Form.Control as="select" multiple>
+                <Form.Group vegetable="vegetableForm">
+                  <Form.Control as="select" onChange={(e) => this.setState({ vegetable: e.target.value })}>
+                    <option>...</option>
                     <option>Lettuce</option>
                     <option>Onion</option>
                     <option>Tomato</option>
@@ -70,8 +90,8 @@ class Ingredients extends React.Component {
                 Click to Choose Cheese
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
-                <Form.Group proteinId="proteinForm.Select">
-                  <Form.Control as="select">
+                <Form.Group other="cheeseForm">
+                  <Form.Control as="select" onChange={(e) => this.setState({ other: e.target.value })}>
                     <option>...</option>
                     <option>Cheddar</option>
                     <option>Mojito or whatever Skyler said</option>
@@ -81,21 +101,14 @@ class Ingredients extends React.Component {
                 </Form.Group>
               </Accordion.Collapse>
             </Card>
-          </Accordion>
-          <Button variant="dark" onClick={this.handleSubmit}>Build Recipe</Button>
-        </Form>
+          </Accordion >
+          <Button variant="dark" type="submit" > Build Recipe </Button>
+        </Form >
 
       </>
     )
   }
 }
 
-// within CardColumns, name component 'SelectedIngredients'
-
-// ingredient = false;
-
-// if (ingredient === true) {
-//   ingredientsArray.push(e.target.value);
-// }
 
 export default Ingredients;

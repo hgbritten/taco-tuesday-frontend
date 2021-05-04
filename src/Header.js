@@ -2,7 +2,7 @@ import { Navbar } from 'react-bootstrap';
 import { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import LoginButton from './LoginButton';
-import MyRecipes from './MyRecipes';
+// import MyRecipes from './MyRecipes';
 
 class Header extends Component {
   render() {

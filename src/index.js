@@ -11,9 +11,9 @@ ReactDOM.render(
     clientId="vM7UDo8aCXhISSNStLn5isSkRpxWlbDB"
     redirectUri="http://localhost:3000"
   >
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+
+    <App />
+
   </Auth0Provider>,
   document.getElementById('root')
 );
