@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CardColumns, Container, Accordion } from 'react-bootstrap';
+import { Card, CardColumns, Accordion } from 'react-bootstrap';
 
 
 class Ingredients extends React.Component {

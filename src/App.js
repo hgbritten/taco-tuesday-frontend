@@ -4,6 +4,8 @@ import React from 'react';
 import Ingredients from './Ingredients.js';
 import Header from './Header.js';
 import { Container } from 'react-bootstrap';
+import { withAuth0 } from '@auth0/auth0-react';
+
 
 class App extends React.Component {
   render() {
@@ -11,10 +13,9 @@ class App extends React.Component {
       <Container fluid>
         <Header />
         <Ingredients />
-        {/* <Footer /> */}
       </Container>
     );
   }
 }
 
-export default App;
+export default withAuth0(App);
