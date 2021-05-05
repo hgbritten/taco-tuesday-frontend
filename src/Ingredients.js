@@ -53,11 +53,14 @@ class Ingredients extends React.Component {
               <Accordion.Collapse eventKey="0">
                 <Form.Group protein="proteinForm">
                   <Form.Control as="select" onChange={(e) => this.setState({ meat: e.target.value })}>
-                    <option>...</option>
-                    <option>Chicken</option>
+                    <option>Any</option>
                     <option>Beef</option>
+                    <option>Chicken</option>
                     <option>Fish</option>
+                    <option>Egg</option>
                     <option>Pork</option>
+                    <option>Steak</option>
+                    <option>Chorizo</option>
                   </Form.Control>
                 </Form.Group>
               </Accordion.Collapse>
@@ -68,16 +71,18 @@ class Ingredients extends React.Component {
           <Accordion defaultActiveKey="1">
             <Card>
               <Accordion.Toggle as={Card.Header} eventKey="0">
-                Click to Choose Veggies
+                Click to Choose Veggie
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Form.Group vegetable="vegetableForm">
                   <Form.Control as="select" onChange={(e) => this.setState({ vegetable: e.target.value })}>
-                    <option>...</option>
+                    <option>Any</option>
+                    <option>Peppers</option>
                     <option>Lettuce</option>
                     <option>Onion</option>
                     <option>Tomato</option>
                     <option>Corn</option>
+
                   </Form.Control>
                 </Form.Group>
               </Accordion.Collapse>
@@ -92,7 +97,7 @@ class Ingredients extends React.Component {
               <Accordion.Collapse eventKey="0">
                 <Form.Group other="cheeseForm">
                   <Form.Control as="select" onChange={(e) => this.setState({ other: e.target.value })}>
-                    <option>...</option>
+                    <option>Any</option>
                     <option>Avocado</option>
                     <option>Cilantro</option>
                     <option>Salsa</option>
