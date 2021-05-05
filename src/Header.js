@@ -9,9 +9,9 @@ class Header extends Component {
     return (
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home"> Home </Navbar.Brand>
+          <Navbar.Brand href="/app"> Build Recipe </Navbar.Brand>
+          <Navbar.Brand href="/myrecipes"> My Recipes </Navbar.Brand>
           <LoginButton />
-          <Navbar.Brand href="#profile"> My Recipes </Navbar.Brand>
         </Container>
       </Navbar>
     )
