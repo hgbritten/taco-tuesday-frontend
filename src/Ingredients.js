@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, Accordion, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
+import Recipes from './Recipes.js';
 
 
 class Ingredients extends React.Component {
