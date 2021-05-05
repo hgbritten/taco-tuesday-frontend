@@ -108,6 +108,7 @@ class Ingredients extends React.Component {
           </Accordion >
           <Button variant="dark" type="submit" > Build Recipe </Button>
         </Form >
+        <Recipes recipeArray={this.state.brandNewRecipe} />
 
       </>
     )
