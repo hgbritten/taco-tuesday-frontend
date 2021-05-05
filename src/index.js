@@ -2,19 +2,35 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Landing from './Landing.js'
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from '@auth0/auth0-react';
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route
+} from "react-router-dom";
 
 ReactDOM.render(
-  <Auth0Provider
-    domain="dev-kutmer1h.us.auth0.com"
-    clientId="vM7UDo8aCXhISSNStLn5isSkRpxWlbDB"
-    redirectUri="http://localhost:3000"
-  >
-
-    <App />
-
-  </Auth0Provider>,
+  <>  
+    <Auth0Provider
+      domain="dev-kutmer1h.us.auth0.com"
+      clientId="vM7UDo8aCXhISSNStLn5isSkRpxWlbDB"
+      redirectUri="http://localhost:3000"
+    >
+      <Router>
+        <Switch>
+          <Route exact path="/">
+          <Landing />
+          </Route>
+            <Route exact path="/app">
+              <App />
+          </Route>                   
+        </Switch>
+      </Router>
+    </Auth0Provider>
+  </>,
   document.getElementById('root')
 );
 
