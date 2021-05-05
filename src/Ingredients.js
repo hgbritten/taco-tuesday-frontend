@@ -27,7 +27,7 @@ class Ingredients extends React.Component {
       console.log(this.state.meat);
       console.log(this.state.vegetable);
       console.log(this.state.other);
-      const newRecipe = await axios.get(`${server}/recipes`, { newlyCreatedRecipe: { meat: this.props.newMeat, vegetable: this.props.newVegetable, other: this.props.newOther } });
+      const newRecipe = await axios.get(`${server}/recipes`, { params: { meat: this.state.meat, vegetable: this.state.vegetable, other: this.state.other } });
       const allNewRecipeArray = newRecipe.data;
       console.log('new recipe array: ', allNewRecipeArray);
 
@@ -56,8 +56,8 @@ class Ingredients extends React.Component {
                     <option>...</option>
                     <option>Chicken</option>
                     <option>Beef</option>
-                    <option>Mutton</option>
                     <option>Fish</option>
+                    <option>Pork</option>
                   </Form.Control>
                 </Form.Group>
               </Accordion.Collapse>
@@ -77,7 +77,7 @@ class Ingredients extends React.Component {
                     <option>Lettuce</option>
                     <option>Onion</option>
                     <option>Tomato</option>
-                    <option>Cilantro</option>
+                    <option>Corn</option>
                   </Form.Control>
                 </Form.Group>
               </Accordion.Collapse>
@@ -87,16 +87,20 @@ class Ingredients extends React.Component {
           <Accordion defaultActiveKey="1">
             <Card>
               <Accordion.Toggle as={Card.Header} eventKey="0">
-                Click to Choose Cheese
+                Click to Choose Other Ingredients
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Form.Group other="cheeseForm">
                   <Form.Control as="select" onChange={(e) => this.setState({ other: e.target.value })}>
                     <option>...</option>
-                    <option>Cheddar</option>
-                    <option>Mojito or whatever Skyler said</option>
-                    <option>Sharp Cheddar</option>
-                    <option>Super Sharp Cheddar</option>
+                    <option>Avocado</option>
+                    <option>Cilantro</option>
+                    <option>Salsa</option>
+                    <option>Lime</option>
+                    <option>Tortilla</option>
+                    <option>Beans</option>
+                    <option>Cheese</option>
+                    <option>French Fries</option>
                   </Form.Control>
                 </Form.Group>
               </Accordion.Collapse>
