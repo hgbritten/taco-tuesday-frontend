@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardColumns, Card, Jumbotron } from 'react-bootstrap';
+import { CardColumns, Card, Button } from 'react-bootstrap';
 import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
 import axios from 'axios';
@@ -11,19 +11,21 @@ class MyRecipes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      recipes: [],
       recipeTitle: '',
       recipeSummary: '',
       recipeImage: '',
-      recipes: [],
-      arrayOfRecipes: [],
       showModal: false,
+      recipeToShow: null,
     }
   }
 
-  getMyRecipes = async (e) => {
-    e.preventDefault();
+  getMyRecipes = async () => {
     try {
       const recipes = await axios.get(`${SERVER}/user-recipes`, { email: this.props.auth0.user.email });
+      console.log(recipes.data);
+      console.log({ email: this.props.auth0.user.email });
+      console.log(`${SERVER}/user-recipes`);
       this.setState({ recipes: recipes.data });
     } catch (error) {
       console.error(error);
@@ -49,56 +51,57 @@ class MyRecipes extends React.Component {
       );
   }
 
-  addRecipeTitle = (recipeTitle) => this.setState({ recipeTitle });
-  addRecipeSummary = (recipeSummary) => {
-    console.log(recipeSummary);
-    this.setState({ recipeSummary });
-  };
-
-  // const recipes = await axios.get(`${SERVER}/user-recipes`, {email: this.props.auth0.user.email })
-
-  removeARecipe = (arrayOfRecipes) => this.setState({ recipes: arrayOfRecipes });
-  updateRecipes = (recipes) => this.setState({ recipes });
+  handleOpen = (recipe) => {
+    this.setState({ showModal: true, recipeToShow: recipe });
+  }
+  handleClose = () => {
+    this.setState({ showModal: false })
+  }
 
   // === === Render Return === === //
   render() {
     const { user } = this.props.auth0;
     if (user) {
       console.log(user);
-    return (
-      <>
-        <Jumbotron>
-          <h1 id="favRecipe">My Favorite Recipes</h1>
-          <p id="welcomeMessage">Hello, {user.name}!</p>
-        </Jumbotron>
-        <CardColumns>
-          <>
-            <Card onClick={this.handleOpen}
-              recipeTitle={this.state.recipeTitle}
-              email={this.props.auth0.user.email}
-              removeARecipe={this.removeARecipe}
-              updateRecipes={this.updateRecipes}
-            />
-            <SavedRecipeModal
-              title={this.state.recipeTitle}
-              summary={this.state.recipeSummary}
-              image={this.state.recipeImage}
-              addRecipeTitle={this.addRecipeTitle}
-              addRecipeSummary={this.addRecipeSummary}
-              createRecipe={this.createRecipe}
-            ></SavedRecipeModal>
-          </>
-          
-        </CardColumns>
-      </>
-    )} else {
       return (
         <>
-          <h1>My Favorite Recipes</h1>
-          <p>This is a collection of my favorite recipes</p>
-          {/* <p>Hello {user.email}</p> */}
+          <div id="my-recipes-header">
+            <h1 id="favRecipe">My Favorite Recipes</h1>
+            <p id="welcomeMessage">Hello, {user.name}!</p>
+            <Button variant="info" onClick={this.getMyRecipes}>See My Recipes</Button>
+          </div>
+          {this.state.recipes.length > 0 &&
+            <CardColumns>
+              {this.state.recipes.map((recipe, index) =>
+
+                <>
+                  <Card key={index} onClick={() => this.handleOpen(recipe)}>
+                    <Card.Img src={recipe.image} alt="recipe" />
+                    <Card.Body>
+                      <Card.Title>{recipe.title}</Card.Title>
+                      <Card.Text>{recipe.summary.replace(/<\/?[^>]+>/gi, '')}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                    </Card.Footer>
+                  </Card>
+
+                </>
+
+              )}
+            </CardColumns>
+
+          }
+          {this.state.showModal &&
+            <SavedRecipeModal
+              showModal={this.state.showModal}
+              recipeToShow={this.state.recipeToShow}
+              onClose={this.handleClose}
+            />
+          }
         </>
       )
+    } else {
+      return ('');
     }
   }
 }
