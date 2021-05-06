@@ -4,6 +4,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
 import axios from 'axios';
 
+const SERVER = process.env.PORT;
+// const SERVER = "http://localhost:3001";
 
 class MyRecipes extends React.Component {
   constructor(props) {
@@ -21,7 +23,6 @@ class MyRecipes extends React.Component {
 
   getMyRecipes = async (e) => {
     e.preventDefault();
-    const SERVER = "http://localhost:3001";
     try {
       const recipes = await axios.get(`${SERVER}/recipes`, {
         params: { email: this.props.auth0.user.email },
@@ -33,7 +34,7 @@ class MyRecipes extends React.Component {
   };
 
   setRecipes = () => {
-    fetch(`http://localhost:3001/recipes?email=${this.props.auth0.user.email}`)
+    fetch(`${SERVER}/recipes?email=${this.props.auth0.user.email}`)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -57,8 +58,7 @@ class MyRecipes extends React.Component {
   };
   createRecipe = async (e) => {
     e.preventDefault();
-    const API = "http://localhost:3001";
-    const recipes = await axios.post(`${API}/recipes`, {
+    const recipes = await axios.post(`${SERVER}/recipes`, {
       title: this.state.recipeTitle,
       summary: this.state.recipeSummary,
       email: this.props.auth0.user.email,
