@@ -57,3 +57,12 @@ body {
 
   margin: 0 auto;
 }
+
+#accordionBackground {
+  background-color: rgb(248, 209, 209);
+  
+}
+
+#accordionDropDown {
+  background-color: yellow;
+}

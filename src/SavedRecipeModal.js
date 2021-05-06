@@ -1,7 +1,17 @@
-import React from 'react'
-import { Modal, Image, Button } from 'react-bootstrap'
+import React from 'react';
+import { Modal, Image, Button } from 'react-bootstrap';
 
-class RecipesModal extends React.Component {
+class SavedRecipeModal extends React.Component {
+
+
+  // === === Modal === === //
+  handleOpen = () => {
+    this.setState({ showModal: true });
+  }
+
+  handleClose = () => {
+    this.setState({ showModal: false })
+  }
 
   render() {
     return (
@@ -16,9 +26,9 @@ class RecipesModal extends React.Component {
         <Modal.Footer>
           <Button variant="info">Save Recipe</Button>
         </Modal.Footer>
-      </Modal>
+      </Modal >
     )
   }
 }
 
-export default RecipesModal;
+export default SavedRecipeModal

@@ -7,7 +7,7 @@ import LoginButton from './LoginButton';
 class Header extends Component {
   render() {
     return (
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="info" variant="dark" sticky="top">
         <Container>
           <Navbar.Brand href="/app"> Build Recipe </Navbar.Brand>
           <Navbar.Brand href="/myrecipes"> My Recipes </Navbar.Brand>
