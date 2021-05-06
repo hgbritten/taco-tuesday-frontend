@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <Navbar bg="info" variant="dark" sticky="top">
         <Container>
-          <Navbar.Brand href="/app"> Build Recipe </Navbar.Brand>
+          {/* <Navbar.Brand href="/app"> Build Recipe </Navbar.Brand> */}
           <Navbar.Brand href="/myrecipes"> My Recipes </Navbar.Brand>
           <LogoutButton />
         </Container>
