@@ -23,7 +23,8 @@ class Ingredients extends React.Component {
 
   sendIngredientsList = async (e) => {
 
-    const server = 'https://tacobout.herokuapp.com/';
+    // const server = 'https://tacobout.herokuapp.com/';
+    const server = 'http://localhost:3001';
     try {
       e.preventDefault();
       console.log(this.state.meat);

@@ -17,8 +17,9 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-kutmer1h.us.auth0.com"
       clientId="vM7UDo8aCXhISSNStLn5isSkRpxWlbDB"
-      redirectUri="https://heuristic-kare-676a3f.netlify.app/"
-    // redirectUri="https://localhost:3000/"
+      // redirectUri="https://tacobout.herokuapp.com"
+      // redirectUri="https://heuristic-kare-676a3f.netlify.app"
+      redirectUri="http://localhost:3000"
     >
       <Router>
         <Switch>
