@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Accordion, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import Recipes from './Recipes.js';
+import './App.css';
 
 
 class Ingredients extends React.Component {
@@ -45,10 +46,10 @@ class Ingredients extends React.Component {
       <>
         <Form onSubmit={this.sendIngredientsList}>
 
-          <Accordion defaultActiveKey="1">
+          <Accordion defaultActiveKey="1" >
 
             <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="0">
+              <Accordion.Toggle as={Card.Header} eventKey="0" id="accordionBackground">
                 Click to Choose Protein
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
@@ -71,12 +72,12 @@ class Ingredients extends React.Component {
 
           <Accordion defaultActiveKey="1">
             <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="0">
+              <Accordion.Toggle as={Card.Header} eventKey="0" id="accordionBackground">
                 Click to Choose Veggies
             </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 <Form.Group vegetable="vegetableForm">
-                  <Form.Control as="select" onChange={(e) => this.setState({ vegetable: e.target.value })}>
+                  <Form.Control as="select" onChange={(e) => this.setState({ vegetable: e.target.value })} >
                     <option>Any</option>
                     <option>Peppers</option>
                     <option>Lettuce</option>
@@ -91,11 +92,11 @@ class Ingredients extends React.Component {
 
           <Accordion defaultActiveKey="1">
             <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="0">
+              <Accordion.Toggle as={Card.Header} eventKey="0" id="accordionBackground">
                 Click to Choose Other Ingredients
             </Accordion.Toggle>
-              <Accordion.Collapse eventKey="0">
-                <Form.Group other="cheeseForm">
+              <Accordion.Collapse eventKey="0" >
+                <Form.Group other="cheeseForm" >
                   <Form.Control as="select" onChange={(e) => this.setState({ other: e.target.value })}>
                     <option>Any</option>
                     <option>Avocado</option>
@@ -112,7 +113,7 @@ class Ingredients extends React.Component {
             </Card>
           </Accordion >
           <br />
-          <Button variant="success" type="submit" > Build Recipe </Button>
+          <Button variant="info" type="submit" > Build Recipe </Button>
         </Form >
         <Recipes recipeArray={this.state.brandNewRecipe} />
 

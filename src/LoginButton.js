@@ -9,7 +9,7 @@ function LoginButton() {
   } = useAuth0();
 
   return (
-    <Button variant="dark" onClick={loginWithPopup}>Log In</Button>
+    <Button variant="info" onClick={loginWithPopup}>Log In</Button>
   );
 }
 
