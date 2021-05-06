@@ -14,7 +14,7 @@ class RecipesModal extends React.Component {
           <p>{this.props.singleRecipe.summary}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="info">Save Recipe</Button>
+          <Button variant="info" onClick={this.props.saveARecipe}>Save Recipe</Button>
         </Modal.Footer>
       </Modal>
     )
