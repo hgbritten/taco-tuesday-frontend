@@ -37,12 +37,25 @@
   }
 }
 
+@font-face {
+  font-family: 'ArchitectsDaughter';
+  src: local('ArchitectsDaughter'), url(./fonts/ArchitectsDaughter-Regular.ttf) format('truetype');}
+
+@font-face {
+  font-family: 'GochiHand';
+  src: local('GochiHand'), url(./fonts/GochiHand-Regular.ttf) format('truetype');}
+
 body {
   background-color: rgb(221, 255, 229);
 }
 
 #welcome {
+  margin-top: .2em;
   text-align: center;
+  /* font-family: 'ArchitectsDaughter'; */
+  font-family: GochiHand;
+  font-size: 6em;
+  
 }
 
 /* #welcomeButton {
@@ -72,16 +85,17 @@ body {
 
 #carousel {
   float: initial;
-  max-width: 60%;
+  max-width: 55%;
   margin: 0 auto;
   margin-top: 1em;
+  box-shadow: 5px 5px;
 }
 
 #accordionBackground {
-  background-color: rgb(248, 209, 209);
+  background-color: rgb(241, 242, 250);
   
 }
 
-#accordionDropDown {
+/* #accordionDropDown {
   background-color: yellow;
-}
+} */
