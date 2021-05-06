@@ -17,7 +17,7 @@ ReactDOM.render(
     <Auth0Provider
       domain="dev-kutmer1h.us.auth0.com"
       clientId="vM7UDo8aCXhISSNStLn5isSkRpxWlbDB"
-      redirectUri="http://localhost:3000"
+      redirectUri="https://tacobout.herokuapp.com/"
     >
       <Router>
         <Switch>
