@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background-color: rgb(221, 255, 229);
+}
+
+#welcome {
+  text-align: center;
+}
+
+#welcomeDiv {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+#carousel {
+  float: initial;
+  max-width: 60%;
+
+  margin: 0 auto;
+}
