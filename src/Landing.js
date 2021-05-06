@@ -1,7 +1,9 @@
 import React from 'react'
-
 import { Link } from "react-router-dom";
+import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 import { Carousel } from 'react-bootstrap';
+import { withAuth0 } from '@auth0/auth0-react';
 import taco1 from './img/taco1.jpg';
 import taco2 from './img/taco2.jpg';
 import taco3 from './img/taco3.jpg';
@@ -14,9 +16,13 @@ class Landing extends React.Component {
     return (
       <>
 
-        <h1 id="welcome">Welcome to tacoBout!</h1>
+        <h1 id="welcome">tacoBout</h1>
+        <div id="buttonDiv">
+          {!this.props.auth0.isAuthenticated && <LoginButton />}
+          {this.props.auth0.isAuthenticated && <LogoutButton />}
+        </div>
         <div id="welcomeDiv">
-          <Link to="/app" className="btn btn-primary" id="welcomeButton">Build Recipe Page</Link>
+          {this.props.auth0.isAuthenticated && <Link to="/app" className="btn btn-info" id="welcomeButton">Build Recipe</Link>}
         </div>
         <Carousel id="carousel" interval="2000" pause="false" fade="true" >
 
@@ -59,4 +65,4 @@ class Landing extends React.Component {
 
 }
 
-export default Landing;
+export default withAuth0(Landing);

@@ -1,7 +1,7 @@
 import { Navbar } from 'react-bootstrap';
 import { Component } from 'react';
 import { Container } from 'react-bootstrap';
-import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 // import MyRecipes from './MyRecipes';
 
 class Header extends Component {
@@ -11,7 +11,7 @@ class Header extends Component {
         <Container>
           <Navbar.Brand href="/app"> Build Recipe </Navbar.Brand>
           <Navbar.Brand href="/myrecipes"> My Recipes </Navbar.Brand>
-          <LoginButton />
+          <LogoutButton />
         </Container>
       </Navbar>
     )
