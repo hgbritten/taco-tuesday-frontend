@@ -111,7 +111,8 @@ class Ingredients extends React.Component {
               </Accordion.Collapse>
             </Card>
           </Accordion >
-          <Button variant="dark" type="submit" > Build Recipe </Button>
+          <br />
+          <Button variant="success" type="submit" > Build Recipe </Button>
         </Form >
         <Recipes recipeArray={this.state.brandNewRecipe} />
 
