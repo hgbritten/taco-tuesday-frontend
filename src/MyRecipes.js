@@ -20,13 +20,10 @@ class MyRecipes extends React.Component {
     }
   }
 
-
   getMyRecipes = async (e) => {
     e.preventDefault();
     try {
-      const recipes = await axios.get(`${SERVER}/recipes`, {
-        params: { email: this.props.auth0.user.email },
-      });
+      const recipes = await axios.get(`${SERVER}/user-recipes`, { email: this.props.auth0.user.email });
       this.setState({ recipes: recipes.data });
     } catch (error) {
       console.error(error);
@@ -51,27 +48,17 @@ class MyRecipes extends React.Component {
         }
       );
   }
+
   addRecipeTitle = (recipeTitle) => this.setState({ recipeTitle });
   addRecipeSummary = (recipeSummary) => {
     console.log(recipeSummary);
     this.setState({ recipeSummary });
   };
-  createRecipe = async (e) => {
-    e.preventDefault();
-    const recipes = await axios.post(`${SERVER}/recipes`, {
-      title: this.state.recipeTitle,
-      summary: this.state.recipeSummary,
-      email: this.props.auth0.user.email,
-      image: this.state.recipeImage
-    });
-    this.setState({ showModal: false });
-    return recipes;
-  };
+
+  // const recipes = await axios.get(`${SERVER}/user-recipes`, {email: this.props.auth0.user.email })
+
   removeARecipe = (arrayOfRecipes) => this.setState({ recipes: arrayOfRecipes });
   updateRecipes = (recipes) => this.setState({ recipes });
-
-
-
 
   // === === Render Return === === //
   render() {

@@ -1,6 +1,12 @@
 import React from "react"
 import { CardColumns, Card } from 'react-bootstrap'
 import RecipesModal from './RecipesModal.js'
+import axios from 'axios'
+import { withAuth0 } from '@auth0/auth0-react';
+
+// const SERVER = process.env.PORT;
+const SERVER = "http://localhost:3001"
+
 class Recipes extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +21,19 @@ class Recipes extends React.Component {
   handleClose = () => {
     this.setState({ showModal: false })
   }
+
+  saveARecipe = async (e) => {
+    e.preventDefault();
+    const recipes = await axios.post(`${SERVER}/recipes`, {
+      title: this.state.recipe.title,
+      summary: this.state.recipe.summary,
+      email: this.props.auth0.user.email,
+      image: this.state.recipe.image,
+    });
+    this.setState({ showModal: false });
+    return recipes;
+  };
+
   render() {
     return (
       <>
@@ -27,7 +46,7 @@ class Recipes extends React.Component {
                   <Card.Img src={recipe.image} alt="recipe" />
                   <Card.Body>
                     <Card.Title>{recipe.title}</Card.Title>
-                    {/* <Card.Text>{recipe.summary}</Card.Text> */}
+                    <Card.Text>{recipe.summary}</Card.Text>
                   </Card.Body>
                   <Card.Footer>
                   </Card.Footer>
@@ -41,10 +60,11 @@ class Recipes extends React.Component {
             showModal={this.state.showModal}
             singleRecipe={this.state.recipe}
             onClose={this.handleClose}
+            saveARecipe={this.saveARecipe}
           />
         }
       </>
     )
   }
 }
-export default Recipes;
+export default withAuth0(Recipes);

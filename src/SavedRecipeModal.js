@@ -3,7 +3,6 @@ import { Modal, Image, Button } from 'react-bootstrap';
 
 class SavedRecipeModal extends React.Component {
 
-
   // === === Modal === === //
   handleOpen = () => {
     this.setState({ showModal: true });
