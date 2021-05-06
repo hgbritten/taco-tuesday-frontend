@@ -96,6 +96,15 @@ body {
   
 }
 
+#favRecipe {
+  /* font-family: 'GochiHand'; */
+  font-family: 'ArchitectsDaughter';
+
+}
+
+#welcomeMessage{
+  font-family: 'ArchitectsDaughter';
+}
 /* #accordionDropDown {
   background-color: yellow;
 } */

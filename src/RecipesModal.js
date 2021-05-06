@@ -11,7 +11,7 @@ class RecipesModal extends React.Component {
         </Modal.Header>
         <Modal.Body>
           <Image src={this.props.singleRecipe.image}></Image>
-          <p>{this.props.singleRecipe.summary}</p>
+          <p>{this.props.singleRecipe.summary.replace(/<\/?[^>]+>/gi, '')}</p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="info">Save Recipe</Button>

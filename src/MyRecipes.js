@@ -4,8 +4,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
 import axios from 'axios';
 
-const SERVER = process.env.PORT;
-// const SERVER = "http://localhost:3001";
+// const SERVER = process.env.PORT;
+const SERVER = "http://localhost:3001";
 
 class MyRecipes extends React.Component {
   constructor(props) {
@@ -75,14 +75,15 @@ class MyRecipes extends React.Component {
 
   // === === Render Return === === //
   render() {
+    const { user } = this.props.auth0;
+    if (user) {
+      console.log(user);
     return (
       <>
         <Jumbotron>
-          <h1>My Favorite Recipes</h1>
-          <p>This is a collection of my favorite recipes</p>
-          {/* <BestBooks recipes={this.state.books} setBooks={this.setBooks} /> */}
+          <h1 id="favRecipe">My Favorite Recipes</h1>
+          <p id="welcomeMessage">Hello, {user.name}!</p>
         </Jumbotron>
-
         <CardColumns>
           <>
             <Card onClick={this.handleOpen}
@@ -92,15 +93,26 @@ class MyRecipes extends React.Component {
               updateRecipes={this.updateRecipes}
             />
             <SavedRecipeModal
+              title={this.state.recipeTitle}
+              summary={this.state.recipeSummary}
+              image={this.state.recipeImage}
               addRecipeTitle={this.addRecipeTitle}
               addRecipeSummary={this.addRecipeSummary}
               createRecipe={this.createRecipe}
             ></SavedRecipeModal>
           </>
-          )
+          
         </CardColumns>
       </>
-    )
+    )} else {
+      return (
+        <>
+          <h1>My Favorite Recipes</h1>
+          <p>This is a collection of my favorite recipes</p>
+          {/* <p>Hello {user.email}</p> */}
+        </>
+      )
+    }
   }
 }
 
