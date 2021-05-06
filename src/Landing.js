@@ -9,6 +9,7 @@ import taco4 from './img/taco4.jpg';
 import './App.css';
 
 class Landing extends React.Component {
+
   render() {
     return (
       <>
@@ -55,6 +56,7 @@ class Landing extends React.Component {
       </>
     )
   }
+
 }
 
 export default Landing;
