@@ -4,7 +4,7 @@ import RecipesModal from './RecipesModal.js'
 import axios from 'axios'
 import { withAuth0 } from '@auth0/auth0-react';
 
-const SERVER = process.env.PORT;
+const SERVER = 'https://tacobout.herokuapp.com'
 // const SERVER = "http://localhost:3001"
 
 class Recipes extends React.Component {
@@ -22,8 +22,7 @@ class Recipes extends React.Component {
     this.setState({ showModal: false })
   }
 
-  saveARecipe = async (e) => {
-    e.preventDefault();
+  saveARecipe = async () => {
     const recipes = await axios.post(`${SERVER}/recipes`, {
       title: this.state.recipe.title,
       summary: this.state.recipe.summary,
