@@ -5,7 +5,7 @@ import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
 import axios from 'axios';
 
-const SERVER = process.env.PORT;
+const SERVER = 'https://tacobout.herokuapp.com';
 // const SERVER = "http://localhost:3001";
 
 class MyRecipes extends React.Component {
