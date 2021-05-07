@@ -5,8 +5,8 @@ import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
 import axios from 'axios';
 
-// const SERVER = process.env.PORT;
-const SERVER = "http://localhost:3001";
+const SERVER = process.env.PORT;
+// const SERVER = "http://localhost:3001";
 
 class MyRecipes extends React.Component {
   constructor(props) {
