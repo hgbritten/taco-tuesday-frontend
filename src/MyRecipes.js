@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardColumns, Card, Button } from 'react-bootstrap';
+import { CardColumns, Card, Button, Container } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
@@ -67,7 +67,7 @@ class MyRecipes extends React.Component {
     if (user) {
       console.log(user);
       return (
-        <>
+        <Container fluid>
           <h1 id="favRecipe">My Favorite Recipes</h1>
           <p id="welcomeMessage">Hello, {user.name}!</p>
           <div id="my-recipes-header">
@@ -104,7 +104,7 @@ class MyRecipes extends React.Component {
               onClose={this.handleClose}
             />
           }
-        </>
+        </Container>
       )
     } else {
       return ('');
