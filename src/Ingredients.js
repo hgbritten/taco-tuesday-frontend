@@ -43,11 +43,12 @@ class Ingredients extends React.Component {
     }
   }
 
-  // work
+
   render() {
     return (
-      <>
-        <Form onSubmit={this.sendIngredientsList}>
+
+      <div id="accordion-container">
+        <Form id="accordion" onSubmit={this.sendIngredientsList}>
 
           <Accordion defaultActiveKey="1" >
 
@@ -120,7 +121,7 @@ class Ingredients extends React.Component {
         </Form >
         <Recipes recipeArray={this.state.brandNewRecipe} />
 
-      </>
+      </div>
     )
   }
 }

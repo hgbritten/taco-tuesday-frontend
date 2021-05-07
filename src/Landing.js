@@ -11,16 +11,16 @@ import taco4 from './img/taco4.jpg';
 import './App.css';
 
 class Landing extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: {}
-        }
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {}
     }
+  }
 
-    updateUser = (e) => {
-        this.setState({ user: e })
-    } 
+  updateUser = (e) => {
+    this.setState({ user: e })
+  }
 
   render() {
     //   console.log(this.props.auth0.user.email);
@@ -30,7 +30,7 @@ class Landing extends React.Component {
         <h1 id="welcome">tacoBout</h1>
         <div id="buttonDiv">
           {!this.props.auth0.isAuthenticated && <LoginButton />}
-          {this.props.auth0.isAuthenticated && <LogoutButton userUpdate={this.updateUser}/>}
+          {this.props.auth0.isAuthenticated && <LogoutButton userUpdate={this.updateUser} />}
         </div>
         <div id="welcomeDiv">
           {this.props.auth0.isAuthenticated && <Link to="/app" className="btn btn-info" id="welcomeButton">Build Recipe</Link>}

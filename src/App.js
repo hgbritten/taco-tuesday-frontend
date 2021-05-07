@@ -12,6 +12,7 @@ class App extends React.Component {
     return (
       <Container fluid>
         <Header />
+        <h1 id="welcome2">tacoBout</h1>
         <Ingredients />
       </Container>
     );
