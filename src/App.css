@@ -45,14 +45,29 @@
   font-family: 'GochiHand';
   src: local('GochiHand'), url(./fonts/GochiHand-Regular.ttf) format('truetype');}
 
+@font-face {
+  font-family: 'Shadows';
+  src: local('Shadows'), url(./fonts/ShadowsIntoLight-Regular.ttf) format('truetype');}
+
 body {
-  background-color: rgb(221, 255, 229);
+  /* background-color: rgb(221, 255, 229); */
+  background-color: rgb(7, 0, 27);
+  color: white;
 }
 
 #welcome {
   margin-top: .2em;
   text-align: center;
   /* font-family: 'ArchitectsDaughter'; */
+  font-family: GochiHand;
+  font-size: 6em;
+  
+}
+
+#welcome2 {
+  margin-top: .2em;
+  margin-bottom: 0;
+  text-align: center;
   font-family: GochiHand;
   font-size: 6em;
   
@@ -89,22 +104,74 @@ body {
   margin: 0 auto;
   margin-top: 1em;
   box-shadow: 5px 5px;
+
+}
+
+#accordion-container {
+  margin-top: 0;
+  text-align: center;
+}
+
+#accordion {
+
+  margin: 0 auto;
+  max-width: 40%;
 }
 
 #accordionBackground {
   background-color: rgb(241, 242, 250);
+  color:black;
   
 }
 
 #favRecipe {
+  margin-top: .5em;
+  font-size: 4em;
+  text-align: center;
   /* font-family: 'GochiHand'; */
-  font-family: 'ArchitectsDaughter';
+  font-family: 'Shadows';
 
 }
 
-#welcomeMessage{
+#welcomeMessage {
+  text-align: center;
+  font-size: 2em;
   font-family: 'ArchitectsDaughter';
 }
 /* #accordionDropDown {
   background-color: yellow;
 } */
+
+#my-recipes-header {
+  text-align: center;
+  margin-bottom: 3em;
+
+}
+
+#card {
+  color: black;
+  text-align: center;
+}
+
+#card-title {
+  color: black;
+  font-size: 1.5em;
+}
+
+#allcards {
+  max-width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#modal-image {
+  margin: 0 auto;
+}
+
+#my-recipes-button {
+  margin-right: 1em;
+}
+
+#modal {
+  text-align: center;
+}

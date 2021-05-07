@@ -6,13 +6,13 @@ class SavedRecipeModal extends React.Component {
   // === === Modal === === //
   render() {
     return (
-      <Modal show={this.props.showModal} onHide={this.props.onClose}>
+      <Modal id="modal" show={this.props.showModal} onHide={this.props.onClose}>
         <Modal.Header closeButton>
-          <Modal.Title>{this.props.recipeToShow.title}</Modal.Title>
+          <Modal.Title id="card">{this.props.recipeToShow.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Image src={this.props.recipeToShow.image}></Image>
-          <p>{this.props.recipeToShow.summary.replace(/<\/?[^>]+>/gi, '')}</p>
+          <Image id="modal-image" src={this.props.recipeToShow.image}></Image>
+          <p id="card">{this.props.recipeToShow.summary.replace(/<\/?[^>]+>/gi, '')}</p>
         </Modal.Body>
         <Modal.Footer>
         </Modal.Footer>
@@ -21,4 +21,4 @@ class SavedRecipeModal extends React.Component {
   }
 }
 
-export default SavedRecipeModal
+export default SavedRecipeModal;

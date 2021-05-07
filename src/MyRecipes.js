@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardColumns, Card, Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
 import { withAuth0 } from '@auth0/auth0-react';
 import SavedRecipeModal from './SavedRecipeModal'
 import axios from 'axios';
@@ -22,7 +23,9 @@ class MyRecipes extends React.Component {
 
   getMyRecipes = async () => {
     try {
-      const recipes = await axios.get(`${SERVER}/user-recipes`, { email: this.props.auth0.user.email });
+      const email = this.props.auth0.user.email;
+      const recipes = await axios.get(`${SERVER}/user-recipes?email=${email}`);
+      // const recipes = await axios.get(`${SERVER}/user-recipes`, { email: this.props.auth0.user.email });
       console.log(recipes.data);
       console.log({ email: this.props.auth0.user.email });
       console.log(`${SERVER}/user-recipes`);
@@ -65,21 +68,23 @@ class MyRecipes extends React.Component {
       console.log(user);
       return (
         <>
+          <h1 id="favRecipe">My Favorite Recipes</h1>
+          <p id="welcomeMessage">Hello, {user.name}!</p>
           <div id="my-recipes-header">
-            <h1 id="favRecipe">My Favorite Recipes</h1>
-            <p id="welcomeMessage">Hello, {user.name}!</p>
+            <Link to="/app" className="btn btn-info" id="my-recipes-button">Back</Link>
             <Button variant="info" onClick={this.getMyRecipes}>See My Recipes</Button>
-          </div>
-          {this.state.recipes.length > 0 &&
-            <CardColumns>
+          </div >
+          {
+            this.state.recipes.length > 0 &&
+            <CardColumns id="allcards">
               {this.state.recipes.map((recipe, index) =>
 
                 <>
                   <Card key={index} onClick={() => this.handleOpen(recipe)}>
                     <Card.Img src={recipe.image} alt="recipe" />
                     <Card.Body>
-                      <Card.Title>{recipe.title}</Card.Title>
-                      <Card.Text>{recipe.summary.replace(/<\/?[^>]+>/gi, '')}</Card.Text>
+                      <Card.Title id="card-title">{recipe.title}</Card.Title>
+                      {/* <Card.Text>{recipe.summary.replace(/<\/?[^>]+>/gi, '')}</Card.Text> */}
                     </Card.Body>
                     <Card.Footer>
                     </Card.Footer>
@@ -91,7 +96,8 @@ class MyRecipes extends React.Component {
             </CardColumns>
 
           }
-          {this.state.showModal &&
+          {
+            this.state.showModal &&
             <SavedRecipeModal
               showModal={this.state.showModal}
               recipeToShow={this.state.recipeToShow}

@@ -39,14 +39,14 @@ class Recipes extends React.Component {
       <>
         <br />
         {this.props.recipeArray.length > 0 &&
-          <CardColumns>
+          <CardColumns id="allcards">
             {this.props.recipeArray.map((recipe, index) =>
               <>
                 <Card key={index} onClick={() => this.handleOpen(recipe)}>
                   <Card.Img src={recipe.image} alt="recipe" />
                   <Card.Body>
-                    <Card.Title>{recipe.title}</Card.Title>
-                    <Card.Text>{recipe.summary}</Card.Text>
+                    <Card.Title id="card-title" >{recipe.title}</Card.Title>
+                    {/* <Card.Text>{recipe.summary}</Card.Text> */}
                   </Card.Body>
                   <Card.Footer>
                   </Card.Footer>
