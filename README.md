@@ -1,3 +1,9 @@
+# Welcome to tacoBout
+### The fully deployed web app to help you find the perfect taco recipe for your Tuesday, or any other day of the week.
+![Deployed on netlify](heuristic-kare-676a3f.netlify.app/) 
+
+### With help from the ![Spoonacular](https://spoonacular.com/food-api) API
+
 # Cooperation Plan
 Every person on your team is an asset. This is your chance to discover the hidden strengths and areas for growth for each team member.
 
