@@ -34,7 +34,6 @@ Describe at least:
     3. Functionality
     4. Bootstrap
 
-
 - How can you best utilize these strengths in the execution of your project?
   - Put team members on where they go best.
   - Collaboration / pair programming with circle backs
