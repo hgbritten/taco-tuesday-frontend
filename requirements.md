@@ -25,7 +25,6 @@ Ensuring each Taco Tuesday is as fresh as our ingredients.
 
 Our MVP will allow a user to enter certain ingredients, and receive recipes based on those ingredients. They will also be able to search the database for recipes, and save recipes they like. Users will also be able to log in.
 
-
 ## Stretch Goals
 
 - Allow users to 'favorite' or rate recipes in their saved folder
@@ -33,18 +32,15 @@ Our MVP will allow a user to enter certain ingredients, and receive recipes base
 - Add lots and lots of ingredients (MVP will only show 5-10)
 - Add recipes besides tacos
 
-
 ## List the functionality of your product. This will consist of tasks such as the following:
 
 - A user can search for taco recipes depending on ingredient
 - A user can log in using Auth0
 - An admin can determine which recipes are listed (narrow searches to recipes with images, for example)
 
-
 ## Data Flow
 
 ![wireframe](./img/tacoWireframe.JPG)
-
 
 ## Non-Functional Requirements
 
